@@ -1,0 +1,3 @@
+Nombre: Cristóbal
+Teléfono: 912341234
+Categoría: Personal
