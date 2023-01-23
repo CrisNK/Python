@@ -23,11 +23,10 @@ def main():
     preguntar = True
     
     while preguntar:
+        os.system('clear') # Limpia la terminal en Linux/Mac.
+        # os.system('cls') # Limpia la terminal en Windows.
 
-        os.system('clear') # Limpia la terminal en Linux/Mac
-        #os.system('cls') # Limpia la terminal en Windows
-
-        # Muestra el menú de opciones
+        # Muestra el menú de opciones y retorna la opción seleccionada.
         opcion = menu()
 
         if opcion == 1:
@@ -35,20 +34,16 @@ def main():
             agregar_contacto()
         elif opcion == 2:
             os.system('clear')
-            # mostrar_contactos()
-            preguntar = False
+            mostrar_contactos()
         elif opcion == 3:
             os.system('clear')
-            # actualizar_contacto()
-            preguntar = False
+            actualizar_contacto()
         elif opcion == 4:
             os.system('clear')
             # eliminar_contacto()
-            preguntar = False
         elif opcion == 5:
             os.system('clear')
             # buscar_contacto()
-            preguntar = False
         elif opcion == 6:
             os.system('clear')
             print('*----------------------------------*\n'
@@ -114,10 +109,19 @@ def agregar_contacto():
               '|   ERROR: El contacto ya existe   |\n'
               '*----------------------------------*')
         input('Presione una tecla para continuar...')
-# def mostrar_contactos():
-
-# def actualizar_contacto():
-
+def mostrar_contactos():
+    archivos = os.listdir(CARPETA)
+    archivos_txt = [i for i in archivos if i.endswith(EXTENSION)]
+    
+    for archivo in archivos_txt:
+        with open(CARPETA + archivo) as contactos:
+            for contacto in contactos:
+                # Muestra los datos de los contactos.
+                print(contacto.rstrip())
+            print()
+    input('Presione una tecla para volver al menú principal...')
+def actualizar_contacto():
+    
 # def eliminar_contacto():
 
 # def buscar_contacto():
