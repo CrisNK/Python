@@ -91,8 +91,7 @@ def agregar_contacto():
             categoria_contacto = input(' Categoría: ')
 
             # Instanciar la clase.
-            contacto = Contacto(
-                nombre_contacto, telefono_contacto, categoria_contacto)
+            contacto = Contacto(nombre_contacto, telefono_contacto, categoria_contacto)
 
             # Escribir datos guardados en el archivo de texto.
             archivo.write('Nombre: ' + contacto.nombre + '\n')
